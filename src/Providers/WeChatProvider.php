@@ -114,7 +114,7 @@ class WeChatProvider extends AbstractProvider implements ProviderInterface
             $path = 'qrconnect';
         }
 
-        return $this->buildAuthUrlFromBase("https://open.weixin.qq.com/connect/{$path}", $state);
+        return $this->buildAuthUrlFromBase("https://mpx.wetalk.im/connect/{$path}", $state);
     }
 
     /**
