@@ -156,7 +156,12 @@ class WeChatProvider extends AbstractProvider implements ProviderInterface
             return $this->baseUrl.'/oauth2/component/access_token';
         }
 
-        $baseUrl = env('WECHAT_BASE_URL' . '/sns', $this->baseUrl);
+        $baseUrl = env('WECHAT_BASE_URL');
+        if ($baseUrl) {
+            $baseUrl .=  '/sns';
+        } else {
+            $baseUrl = $this->baseUrl;
+        }
 
         return $baseUrl.'/oauth2/access_token';
     }
