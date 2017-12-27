@@ -210,7 +210,7 @@ class WeChatProvider extends AbstractProvider implements ProviderInterface
     protected function getTokenFields($code)
     {
         return array_filter([
-            'appid' => $this->clientId,
+            'appid' => env('WECHAT_OFFICIAL_ACCOUNT_APPID'), // $this->clientId,
             'secret' => $this->clientSecret,
             'component_appid' => $this->component ? $this->component->getAppId() : null,
             'component_access_token' => $this->component ? $this->component->getToken() : null,
