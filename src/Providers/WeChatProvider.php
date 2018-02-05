@@ -114,7 +114,7 @@ class WeChatProvider extends AbstractProvider implements ProviderInterface
             $path = 'qrconnect';
         }
 
-        $baseUrl = conf('wechat.base_url', 'https://open.weixin.qq.com');
+        $baseUrl = config('wechat.base_url', 'https://open.weixin.qq.com');
 
         return $this->buildAuthUrlFromBase($baseUrl . "/connect/{$path}", $state);
     }
@@ -139,7 +139,7 @@ class WeChatProvider extends AbstractProvider implements ProviderInterface
         }
 
         return array_merge([
-            'appid' => conf('wechat.official_account', $this->clientId),
+            'appid' => config('wechat.official_account', $this->clientId),
             'redirect_uri' => $this->redirectUrl,
             'response_type' => 'code',
             'scope' => $this->formatScopes($this->scopes, $this->scopeSeparator),
@@ -156,7 +156,7 @@ class WeChatProvider extends AbstractProvider implements ProviderInterface
             return $this->baseUrl.'/oauth2/component/access_token';
         }
 
-        $baseUrl = conf('wechat.base_url');
+        $baseUrl = config('wechat.base_url');
         if ($baseUrl) {
             $baseUrl .=  '/sns';
         } else {
